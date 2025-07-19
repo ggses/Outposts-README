@@ -1,0 +1,143 @@
+# Outposts Plugin
+
+A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible with both **Spigot** and **Paper** (Paper recommended for optimal performance).
+
+## Features
+
+- **Outpost Creation & Management**: Easy setup using WorldEdit selections and automatic WorldGuard region creation
+- **Capture System**: Players can attack and capture outposts with configurable timers and cooldowns
+- **Loot System**: Customizable loot with drop chances, supports both vanilla items and ItemsAdder
+- **Mob Waves**: Spawn mobs at specific capture progress percentages
+- **Boss Bar Progress**: Visual capture progress with customizable colors
+- **PlaceholderAPI Integration**: Full placeholder support for other plugins
+- **Optional Integrations**: ItemsAdder, Sentinel NPCs, BlueMap/Dynmap markers
+
+## Requirements
+
+### Required Dependencies
+- **WorldEdit** - For region selection
+- **WorldGuard** - For region protection
+- **PlaceholderAPI** - For placeholder integration
+
+### Optional Dependencies
+- **ItemsAdder** - For custom loot items
+- **Sentinel** - For spawning custom NPC mobs during waves
+- **BlueMap** or **Dynmap** - For displaying outpost markers on live maps
+
+## Installation
+
+1. Download the plugin JAR file
+2. Place it in your server's `plugins/` folder
+3. Ensure all required dependencies are installed
+4. Start/restart your server
+5. Configure outposts in `plugins/Outposts/outposts.yml`
+
+## Commands
+
+### Player Commands
+- `/outposts attack` (alias: `/oup attack`) - Attack/capture current outpost
+- `/outposts list` (alias: `/oup list`) - List all outposts with status
+
+### Admin Commands
+- `/outposts create <name> <capture_time> <cooldown>` - Create new outpost
+- `/outposts delete <name>` - Delete existing outpost  
+- `/outposts reload` - Reload plugin configuration
+- `/outposts help` - Show help information
+
+## Permissions
+
+- `outposts.use` - Basic plugin usage (default: true)
+- `outposts.attack` - Attack/capture outposts (default: true)
+- `outposts.list` - List outposts (default: true)
+- `outposts.admin` - All admin commands (default: op)
+- `outposts.create` - Create outposts (default: op)
+- `outposts.delete` - Delete outposts (default: op)
+- `outposts.reload` - Reload configuration (default: op)
+
+## Creating an Outpost
+
+1. Make a WorldEdit selection (cuboid region)
+2. Run `/oup create <name> <capture_time> <cooldown>`
+3. Place the provided chest inside the region
+4. Configure additional settings in `outposts.yml` if needed
+
+The plugin will automatically:
+- Create a WorldGuard region with protection flags
+- Set up the basic outpost configuration
+- Auto-expand the region vertically (if enabled in config)
+
+## Configuration
+
+### Main Config (`config.yml`)
+Contains global settings, default values, and message templates.
+
+### Outposts Config (`outposts.yml`)
+Defines individual outposts with their specific settings:
+- Capture time and cooldown overrides
+- Boss bar settings
+- Loot configuration with drop chances
+- Mob wave definitions
+- Map integration settings
+
+## PlaceholderAPI Placeholders
+
+- `%outposts_current%` - Current outpost name (or NONE)
+- `%outposts_cooldown_<name>%` - Cooldown remaining for specific outpost
+- `%outposts_status_<name>%` - Status: READY/CAPTURING/COOLDOWN
+- `%outposts_progress_<name>%` - Capture progress percentage
+
+## Loot System
+
+Supports both vanilla Minecraft items and ItemsAdder custom items:
+
+```yaml
+loot:
+  0:
+    material: "DIAMOND"
+    amount: 2
+    chance: 50
+  1:
+    material: "ITEMSADDER:custom_sword"
+    amount: 1
+    chance: 25
+```
+
+## Mob Waves
+
+Spawn mobs at specific capture progress percentages:
+
+```yaml
+waves:
+  0:
+    percent: 25
+    mobs:
+      - "ZOMBIE:3"
+      - "SKELETON:2"
+      - "SENTINEL:guard_npc"
+```
+
+## Building from Source
+
+This plugin uses Maven for dependency management:
+
+```bash
+git clone <repository-url>
+cd outposts-plugin
+mvn clean package
+```
+
+The compiled JAR will be in the `target/` directory.
+
+## Compatibility
+
+- **Minecraft Version**: 1.21.5
+- **Server Software**: Spigot and Paper (Paper recommended)
+- **Java Version**: 17+
+
+## Support
+
+For issues, feature requests, or questions, please visit our GitHub repository or Discord server.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
