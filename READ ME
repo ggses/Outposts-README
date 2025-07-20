@@ -2,300 +2,188 @@
 
 A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible with both **Spigot** and **Paper** (Paper recommended for optimal performance).
 
-## 🏰 Features
+## Features
 
-### Core System
-- **Outpost Creation & Management**: Easy setup using WorldEdit selections with automatic WorldGuard region creation
-- **Advanced Capture System**: Players can attack and capture outposts with configurable timers and cooldowns
-- **Smart Cooldown Management**: Robust cooldown system with proper cleanup and admin controls
-- **Visual Progress Tracking**: Boss bar progress indicators with customizable colors and styles
+- **Outpost Creation & Management**: Easy setup using WorldEdit selections and automatic WorldGuard region creation
+- **Capture System**: Players can attack and capture outposts with configurable timers and cooldowns
+- **Loot System**: Customizable loot with drop chances, supports both vanilla items and ItemsAdder
+- **Mob Waves**: Spawn mobs at specific capture progress percentages
+- **Boss Bar Progress**: Visual capture progress with customizable colors
+- **PlaceholderAPI Integration**: Full placeholder support for other plugins
+- **Optional Integrations**: ItemsAdder, Sentinel NPCs, BlueMap/Dynmap markers
 
-### Loot & Rewards
-- **Flexible Loot System**: Customizable loot with individual drop chances for each item
-- **Vanilla & Custom Items**: Full support for both Minecraft items and ItemsAdder custom items
-- **Protected Loot Chests**: Automatic chest protection with smart item management
-- **Dynamic Loot Distribution**: Items are randomly placed in chest slots for variety
-
-### Combat & Challenges
-- **Mob Wave System**: Spawn challenging mobs at specific capture progress percentages
-- **Configurable Difficulty**: Customize mob types, counts, and spawn timing per outpost
-- **Sentinel Integration**: Support for custom NPC mobs during wave events
-- **Combat Effects**: Immersive sound effects and particle systems
-
-### Integration & Compatibility
-- **PlaceholderAPI Support**: Full placeholder integration for other plugins and displays
-- **Map Integration**: BlueMap and Dynmap markers with customizable icons and descriptions
-- **Multi-Plugin Support**: Optional integrations with ItemsAdder, Sentinel, and map plugins
-- **Permission System**: Granular permissions for different user roles
-
-## 📋 Requirements
+## Requirements
 
 ### Required Dependencies
-- **WorldEdit** (7.3.0+) - For region selection and management
-- **WorldGuard** (7.0.9+) - For region protection and flags
-- **PlaceholderAPI** (2.11.5+) - For placeholder integration and display
+- **WorldEdit** - For region selection
+- **WorldGuard** - For region protection
+- **PlaceholderAPI** - For placeholder integration
 
 ### Optional Dependencies
-- **ItemsAdder** (3.6.1+) - For custom loot items and enhanced gameplay
-- **Sentinel** - For spawning custom NPC mobs during capture waves
-- **BlueMap** - For displaying outpost markers on 3D web maps
-- **Dynmap** - For displaying outpost markers on 2D web maps
+- **ItemsAdder** - For custom loot items
+- **Sentinel** - For spawning custom NPC mobs during waves
+- **BlueMap** or **Dynmap** - For displaying outpost markers on live maps
 
-## 🚀 Installation
+## Installation
 
-1. **Download** the plugin JAR file from releases
-2. **Install Dependencies**: Ensure WorldEdit, WorldGuard, and PlaceholderAPI are installed
-3. **Place Plugin**: Put the JAR file in your server's `plugins/` folder
-4. **Start Server**: Start or restart your server to generate configuration files
-5. **Configure**: Edit `plugins/Outposts/config.yml` and `outposts.yml` as needed
-6. **Create Outposts**: Use `/oup create` command to set up your first outpost
+1. Download the plugin JAR file
+2. Place it in your server's `plugins/` folder
+3. Ensure all required dependencies are installed
+4. Start/restart your server
+5. Configure outposts in `plugins/Outposts/outposts.yml`
 
-## 🎮 Commands
+## Commands
 
-### Player Commands (No Permissions Required)
-- `/outposts attack` or `/oup attack` - Attack and capture the current outpost
-- `/outposts list` or `/oup list` - View all outposts with their current status
-- `/outposts help` or `/oup help` - Display help information
+### Player Commands
+- `/outposts attack` (alias: `/oup attack`) - Attack/capture current outpost
+- `/outposts list` (alias: `/oup list`) - List all outposts with status
 
-### Admin Commands (Requires Permissions)
-- `/oup create <name> <capture_time> <cooldown>` - Create a new outpost from WorldEdit selection
-- `/oup delete <name>` - Permanently delete an existing outpost
-- `/oup endcooldown <name>` - Instantly end an outpost's cooldown period
-- `/oup forcecapture <name>` - Force complete capture of an outpost (admin override)
-- `/oup forcecooldown <name> [time]` - Force an outpost into cooldown state
-- `/oup addloot <outpost> <amount> [chance]` - Add held item to outpost loot table
-- `/oup reload` - Reload all plugin configurations
+### Admin Commands
+- `/outposts create <name> <capture_time> <cooldown>` - Create new outpost
+- `/outposts delete <name>` - Delete existing outpost  
+- `/outposts reload` - Reload plugin configuration
+- `/outposts help` - Show help information
+# !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
 
-> **⚠️ Important**: Using `/oup addloot` may overwrite manually configured loot in `outposts.yml`
-
-## 🔐 Permissions
+## Permissions
 
 ### Basic Permissions
 - `outposts.use` - Basic plugin usage (default: true)
-- `outposts.attack` - Attack and capture outposts (default: true)
-- `outposts.list` - List outposts and their status (default: true)
+- `outposts.attack` - Attack/capture outposts (default: true)
+- `outposts.list` - List outposts (default: true)
+- `outposts.help` - View help information (default: true)
 
-### Admin Permissions
-- `outposts.admin` - All administrative commands (default: op)
-- `outposts.create` - Create new outposts (default: op)
-- `outposts.delete` - Delete existing outposts (default: op)
+### Administrative Permissions
+- `outposts.*` - All outposts permissions (default: false)
+- `outposts.admin` - All admin commands (default: op)
+- `outposts.create` - Create outposts (default: op)
+- `outposts.delete` - Delete outposts (default: op)
 - `outposts.endcooldown` - End outpost cooldowns (default: op)
 - `outposts.forcecapture` - Force capture outposts (default: op)
 - `outposts.forcecooldown` - Force cooldown on outposts (default: op)
 - `outposts.addloot` - Add loot to outposts (default: op)
-- `outposts.reload` - Reload plugin configuration (default: op)
+- `outposts.reload` - Reload configuration (default: op)
 
-## 🏗️ Creating Your First Outpost
+### LuckPerms Setup Examples
+```
+# Basic player permissions (automatically granted)
+/lp group default permission set outposts.use true
+/lp group default permission set outposts.attack true
+/lp group default permission set outposts.list true
+/lp group default permission set outposts.help true
 
-### Step-by-Step Guide
-1. **Select Area**: Use WorldEdit to select the outpost region (`//wand`, then left/right click)
-2. **Create Outpost**: Run `/oup create <name> <capture_time> <cooldown>`
-   - `name`: Unique identifier for your outpost
-   - `capture_time`: Seconds required to capture (e.g., 60)
-   - `cooldown`: Seconds before outpost becomes available again (e.g., 300)
-3. **Place Chest**: You'll receive a special chest - place it inside the region within 60 seconds
-4. **Configure**: Edit `outposts.yml` to customize loot, waves, and other settings
-5. **Test**: Use `/oup list` to verify the outpost was created successfully
+# Admin permissions
+/lp group admin permission set outposts.admin true
 
-### What Happens Automatically
-- WorldGuard region creation with protection flags
-- Basic outpost configuration setup
-- Vertical region expansion (if enabled in config)
-- Chest location registration and protection
+# Or grant specific admin permissions
+/lp group moderator permission set outposts.endcooldown true
+/lp group moderator permission set outposts.forcecapture true
+/lp group builder permission set outposts.create true
+```
 
-## ⚙️ Configuration
+## Creating an Outpost
+
+1. Make a WorldEdit selection (cuboid region)
+2. Run `/oup create <name> <capture_time> <cooldown>`
+3. Place the provided chest inside the region
+4. Configure additional settings in `outposts.yml` if needed
+
+The plugin will automatically:
+- Create a WorldGuard region with protection flags
+- Set up the basic outpost configuration
+- Auto-expand the region vertically (if enabled in config)
+
+## Configuration
 
 ### Main Config (`config.yml`)
-Contains global settings, default values, and message templates:
-
-```yaml
-# Global defaults for new outposts
-defaultCaptureTime: 60
-defaultCooldown: 300
-
-# Visual settings
-useBossbar: true
-bossbarColor: GREEN
-lootChestType: CHEST
-
-# Region settings
-autoExpandY: true
-
-# Message settings
-showEnterMessage: true
-enterDisplayType: CHAT
-
-# Customizable messages for all plugin interactions
-messages:
-  notInOutpost: "&4⚔ &cYou are not inside a capturable outpost."
-  # ... more messages
-```
+Contains global settings, default values, and message templates.
 
 ### Outposts Config (`outposts.yml`)
 Defines individual outposts with their specific settings:
+- Capture time and cooldown overrides
+- Boss bar settings
+- Loot configuration with drop chances
+- Mob wave definitions
+- Map integration settings
 
-```yaml
-my-fortress:
-  region: "outpost_my_fortress"
-  displayName: "&6&lMy Fortress"
-  captureTime: 90
-  cooldown: 600
-  
-  # Loot configuration
-  loot:
-    0:
-      material: "DIAMOND"
-      amount: 3
-      chance: 75
-    1:
-      material: "ITEMSADDER:custom_sword"
-      amount: 1
-      chance: 25
-  
-  # Wave configuration
-  waves:
-    0:
-      percent: 25
-      mobs:
-        - "ZOMBIE:5"
-        - "SKELETON:3"
-```
+## PlaceholderAPI Placeholders
 
-## 📊 PlaceholderAPI Integration
+**Usage of placeholders:**
+- `%outposts_current%` - Current outpost name (or NONE)
+- `%outposts_cooldown_<name>%` - Cooldown remaining for specific outpost
+- `%outposts_status_<name>%` - Status: READY/CAPTURING/COOLDOWN
+- `%outposts_progress_<name>%` - Capture progress percentage
 
-### Available Placeholders
-- `%outposts_current%` - Name of outpost at player's location (or "NONE")
-- `%outposts_cooldown_<name>%` - Cooldown remaining for specific outpost (seconds)
-- `%outposts_status_<name>%` - Current status: READY/CAPTURING/COOLDOWN
-- `%outposts_progress_<name>%` - Capture progress percentage (0.0-100.0)
+**PlaceholderAPI is required** for:
+- Integration with other plugins
+- Displey outposts status on tab
+- Usage placeholders in others plugin
 
-### Usage Examples
-```yaml
-# In scoreboard or other plugins
-- "Current Outpost: %outposts_current%"
-- "Fortress Status: %outposts_status_fortress%"
-- "Cooldown: %outposts_cooldown_fortress%s"
-```
+## BlueMap Integration
 
-## 🗺️ Map Integration
-
-### BlueMap Setup
-1. Install BlueMap plugin
-2. Add to outpost configuration:
+To tun on integration with BlueMap:
+1. Install plugin BlueMap
+2. In outpost config add:
 ```yaml
 map:
   showOnBlueMap: true
-  bluemapIcon: "castle"
-  bluemapDescription: "Capturable fortress with valuable rewards"
-  markerColor: "#FF6B35"
+  markerIcon: "castle"
+  markerDescription: "Capturable outpost"
 ```
-3. Reload plugin with `/oup reload`
+3. Use `/oup reload`
 
-### Dynmap Setup
-Similar configuration with `showOnDynmap: true` and `dynmapIcon` settings.
+## Loot System
 
-## 🎁 Loot System
+Supports both vanilla Minecraft items and ItemsAdder custom items:
 
-### Supported Item Types
 ```yaml
 loot:
-  # Vanilla Minecraft items
   0:
     material: "DIAMOND"
     amount: 2
     chance: 50
-  
-  # ItemsAdder custom items
   1:
-    material: "ITEMSADDER:namespace:item_id"
+    material: "ITEMSADDER:custom_sword"
     amount: 1
     chance: 25
-  
-  # Enchanted items (basic support)
-  2:
-    material: "IRON_SWORD"
-    amount: 1
-    chance: 40
 ```
 
-### Loot Mechanics
-- Items are randomly distributed in chest slots
-- Each item has independent drop chance calculation
-- Players can only take items from outpost chests, not place them
-- Invalid items are automatically handled without crashes
+## Mob Waves
 
-## ⚔️ Combat System
-
-### Mob Waves
-Configure challenging encounters at different capture stages:
+Spawn mobs at specific capture progress percentages:
 
 ```yaml
 waves:
-  # Early wave (25% progress)
   0:
     percent: 25
     mobs:
       - "ZOMBIE:3"
       - "SKELETON:2"
-  
-  # Mid-game challenge (50% progress)
-  1:
-    percent: 50
-    mobs:
-      - "CREEPER:1"
-      - "SPIDER:4"
-      - "SENTINEL:guard_npc"  # Requires Sentinel plugin
-  
-  # Final wave (75% progress)
-  2:
-    percent: 75
-    mobs:
-      - "IRON_GOLEM:1"
-      - "ZOMBIE:5"
+      - "SENTINEL:guard_npc"
 ```
 
-### Wave Mechanics
-- Mobs spawn randomly within configured radius of chest
-- Multiple waves can trigger at the same progress percentage
-- Sentinel NPCs supported for advanced encounters
-- Smart spawn location finding (ground level, safe positions)
+## Building from Source
 
+This plugin uses Maven for dependency management:
 
+```bash
+git clone <repository-url>
+cd outposts-plugin
+mvn clean package
+```
 
+The compiled JAR will be in the `target/` directory.
 
-## 🔄 Version Compatibility
+## Compatibility
 
 - **Minecraft Version**: 1.21.5
-- **Server Software**: Spigot 1.21.5+ and Paper 1.21.5+ (Paper recommended)
-- **Java Version**: 17 or higher
-- **API Version**: 1.21
+- **Server Software**: Spigot and Paper (Paper recommended)
+- **Java Version**: 17+
 
-## 🐛 Troubleshooting
+## Support
 
-### Common Issues
+For issues, feature requests, or questions, please visit our GitHub repository or Discord server.
 
-**Outpost not working after creation**
-- Ensure WorldEdit selection was made before `/oup create`
-- Verify chest was placed within 60 seconds
-- Check that WorldGuard region was created successfully
+## License
 
-**Cooldown not working properly**
-- Plugin now includes robust cooldown management
-- Use `/oup endcooldown <name>` to manually reset if needed
-- Check server logs for any error messages
-
-**Loot not appearing**
-- Verify chest location is set correctly
-- Check loot configuration syntax in `outposts.yml`
-- Ensure ItemsAdder items exist if using custom items
-
-**PlaceholderAPI not working**
-- Confirm PlaceholderAPI is installed and enabled
-- Use `/papi reload` after installing Outposts
-- Check placeholder syntax matches documentation
-
-
-
----
-
-**Made with ❤️ for the Minecraft community**
+This project is licensed under the MIT License - see the LICENSE file for details.
