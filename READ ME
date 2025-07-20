@@ -22,7 +22,7 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 ### Optional Dependencies
 - **ItemsAdder** - For custom loot items
 - **Sentinel** - For spawning custom NPC mobs during waves
-- **BlueMap** or **Dynmap** - For displaying outpost markers on live maps
+- **BlueMap** - For displaying outpost markers on live maps
 
 ## Installation
 
