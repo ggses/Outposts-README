@@ -1,25 +1,25 @@
 # Outposts Configuration File
 # Define individual outposts here
 # Each outpost must have a unique name and corresponding WorldGuard region
-# ⚠️ WARNING: Using the /oup addloot command may overwrite manually added loot in this file!
+# !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
 
 # Example outpost configuration (remove this section when creating real outposts)
-# This serves as a comprehensive template showing all available configuration options
+# This serves as a template showing all available configuration options
 example-outpost:
   # WorldGuard region name associated with this outpost
   # This region will be created automatically when using /oup create command
   region: "outpost_example"
 
   # Display name shown in messages, boss bars, and UI elements
-  # Supports color codes using & (e.g., &6Gold &cRed &l&nBold Underlined)
-  displayName: "&6&lExample Outpost"
+  # Supports color codes using & (e.g., &6Gold &cRed)
+  displayName: "Example Outpost"
 
   # Time in seconds required to capture this outpost (overrides global default)
   # Players must stay in the region for this duration to complete capture
   captureTime: 60
 
   # Cooldown in seconds after capture before outpost becomes available again
-  # During cooldown, the outpost cannot be attacked by any player
+  # During cooldown, the outpost cannot be attacked
   cooldown: 300
 
   # Whether to show notification when players enter this outpost region
@@ -49,7 +49,7 @@ example-outpost:
 
   # Loot rewards given when outpost is successfully captured
   # Items are added directly to the outpost chest for players to collect
-  # ⚠️ WARNING: Using the /oup addloot command may overwrite this loot configuration!
+  # !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
   loot:
    '0':
       material: "DIAMOND"            # Minecraft material name (must be valid)
@@ -110,36 +110,35 @@ example-outpost:
     showCaptureStatus: true          # Show if outpost is being captured or on cooldown
     markerColor: "#FF6B35"           # Hex color for map markers (#RRGGBB format)
 
-# Additional outpost examples for different scenarios:
+# Additional outpost examples:
 
 # Small outpost example - quick capture, frequent availability
 # small-fort:
 #   region: "outpost_small_fort"
-#   displayName: "&e&lSmall Fort"
-#   captureTime: 30                  # Quick 30-second capture
-#   cooldown: 120                    # Short 2-minute cooldown
+#   displayName: "&6Small Fort"
+#   captureTime: 30
+#   cooldown: 120
 #   showEnterNotification: true
-#   showGlobalAvailableMessage: false # Don't spam chat for small outposts
+#   showGlobalAvailableMessage: false
 #   showGlobalCaptureMessage: true
 #   bossbar:
 #     enabled: true
 #     color: "YELLOW"
-#   mobSpawnRadius: 3                # Smaller spawn area
+#   mobSpawnRadius: 3
 #   loot:
 #    '0':
 #       material: "IRON_INGOT"
 #       amount: 5
-#       chance: 80                   # High chance for common rewards
+#       chance: 80
 #    '1':
 #       material: "GOLD_NUGGET"
 #       amount: 10
 #       chance: 60
 #   waves:
 #    '0':
-#       percent: 50                  # Single wave at halfway point
+#       percent: 50
 #       mobs:
 #         - "ZOMBIE:2"
-#         - "SKELETON:1"
 #   map:
 #     showOnDynmap: true
 #     dynmapIcon: "tower"
@@ -151,57 +150,51 @@ example-outpost:
 # Large fortress example - long capture, rare but valuable
 # grand-fortress:
 #   region: "outpost_grand_fortress"
-#   displayName: "&4&l&nGrand Fortress"
-#   captureTime: 180                 # Long 3-minute capture
-#   cooldown: 900                    # 15-minute cooldown
+#   displayName: "&4&lGrand Fortress"
+#   captureTime: 180
+#   cooldown: 900
 #   showEnterNotification: true
 #   showGlobalAvailableMessage: true
 #   showGlobalCaptureMessage: true
 #   bossbar:
 #     enabled: true
 #     color: "RED"
-#   mobSpawnRadius: 8                # Large spawn area for epic battles
+#   mobSpawnRadius: 8
 #   loot:
 #    '0':
 #       material: "DIAMOND"
 #       amount: 5
-#       chance: 90                   # Almost guaranteed diamonds
+#       chance: 90
 #    '1':
 #       material: "NETHERITE_INGOT"
 #       amount: 1
-#       chance: 25                   # Rare netherite
+#       chance: 25
 #    '2':
 #       material: "ENCHANTED_GOLDEN_APPLE"
 #       amount: 2
-#       chance: 40                   # Valuable consumables
-#    '3':
-#       material: "ITEMSADDER:legendary_sword"
-#       amount: 1
-#       chance: 15                   # Ultra-rare custom item
+#       chance: 40
 #   waves:
 #    '0':
-#       percent: 20                  # Early pressure
+#       percent: 20
 #       mobs:
 #         - "ZOMBIE:5"
 #         - "SKELETON:3"
 #    '1':
-#       percent: 40                  # Mid-game challenge
+#       percent: 40
 #       mobs:
 #         - "CREEPER:2"
 #         - "SPIDER:4"
-#         - "WITCH:1"
 #    '2':
-#       percent: 60                  # Escalating difficulty
+#       percent: 60
 #       mobs:
 #         - "ZOMBIE:3"
 #         - "SKELETON:2"
 #         - "WITCH:1"
 #    '3':
-#       percent: 80                  # Final boss wave
+#       percent: 80
 #       mobs:
 #         - "IRON_GOLEM:1"
 #         - "ZOMBIE:4"
-#         - "SENTINEL:fortress_guardian"
 #   map:
 #     showOnDynmap: true
 #     dynmapIcon: "fort"
@@ -210,92 +203,13 @@ example-outpost:
 #     markerLabel: "Grand Fortress"
 #     markerColor: "#8B0000"
 
-# PvP-focused outpost example
-# pvp-arena:
-#   region: "outpost_pvp_arena"
-#   displayName: "&c&l⚔ &4PvP Arena &c&l⚔"
-#   captureTime: 45
-#   cooldown: 180
-#   showEnterNotification: true
-#   showGlobalAvailableMessage: true
-#   showGlobalCaptureMessage: true
-#   bossbar:
-#     enabled: true
-#     color: "RED"
-#   mobSpawnRadius: 4
-#   loot:
-#    '0':
-#       material: "DIAMOND_SWORD"
-#       amount: 1
-#       chance: 70
-#    '1':
-#       material: "GOLDEN_APPLE"
-#       amount: 3
-#       chance: 85
-#    '2':
-#       material: "ARROW"
-#       amount: 32
-#       chance: 90
-#   waves:
-#    '0':
-#       percent: 33
-#       mobs:
-#         - "SKELETON:4"             # Ranged pressure
-#    '1':
-#       percent: 66
-#       mobs:
-#         - "ZOMBIE:3"
-#         - "CREEPER:1"
-#   map:
-#     showOnDynmap: true
-#     dynmapIcon: "sword"
-#     showOnBlueMap: true
-#     bluemapIcon: "sword"
-#     markerLabel: "PvP Arena"
-#     markerColor: "#DC143C"
-
-# Configuration Notes and Best Practices:
-# 
-# 1. Naming Conventions:
-#    - All outpost names must be unique across the server
-#    - Region names should follow the pattern "outpost_<name>" for consistency
-#    - Use descriptive names that players will recognize
-#
-# 2. Balance Considerations:
-#    - Longer capture times should have better rewards
-#    - Longer cooldowns should be paired with more valuable loot
-#    - Consider server population when setting cooldown times
-#
-# 3. Loot Configuration:
-#    - Chances are percentages (0-100), not decimals
-#    - Invalid materials will be skipped without breaking the plugin
-#    - ItemsAdder items require the plugin to be installed
-#    - Test loot configurations on a development server first
-#
-# 4. Mob Waves:
-#    - Mob format is "MOB_TYPE:COUNT" (e.g., "ZOMBIE:5")
-#    - Multiple waves can trigger at the same percentage
-#    - Sentinel mobs require the Sentinel plugin
-#    - Consider spawn radius when designing wave encounters
-#
-# 5. Map Integration:
-#    - Requires respective plugins (BlueMap/Dynmap) to be installed
-#    - Icons depend on the map plugin's available icon set
-#    - Colors use standard hex format (#RRGGBB)
-#    - Test markers after configuration changes
-#
-# 6. Performance Tips:
-#    - Avoid too many simultaneous waves with large mob counts
-#    - Large spawn radius can impact performance with many mobs
-#    - Consider server TPS when designing complex encounters
-#
-# 7. Color Codes:
-#    - Use & symbol for color codes (e.g., &6 for gold, &c for red)
-#    - Formatting codes: &l (bold), &n (underline), &o (italic), &k (magic)
-#    - Reset formatting with &r
-#
-# 8. Maintenance:
-#    - Regularly backup this configuration file
-#    - Test changes on a development server first
-#    - Monitor server logs for configuration errors
-#    - Use /oup reload after making changes
+# Configuration Notes:
+# - All outpost names must be unique
+# - Region names should follow the pattern "outpost_<name>"
+# - Capture times and cooldowns are in seconds
+# - Loot chances are percentages (0-100)
+# - Invalid materials will be skipped without breaking the plugin
+# - Mob format is "MOB_TYPE:COUNT" (e.g., "ZOMBIE:5")
+# - Map integration requires the respective plugins to be installed
+# - Color codes in display names use & symbol (e.g., &6 for gold, &c for red)
+# - Chest location is set automatically when you place the outpost chest
