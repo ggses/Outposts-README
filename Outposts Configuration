@@ -1,0 +1,213 @@
+# Outposts Configuration File
+# Define individual outposts here
+# Each outpost must have a unique name and corresponding WorldGuard region
+
+# Example outpost configuration (remove this section when creating real outposts)
+# This serves as a template showing all available configuration options
+example-outpost:
+  # WorldGuard region name associated with this outpost
+  # This region will be created automatically when using /oup create command
+  region: "outpost_example"
+
+  # Display name shown in messages, boss bars, and UI elements
+  # Supports color codes using & (e.g., &6Gold &cRed)
+  displayName: "Example Outpost"
+
+  # Time in seconds required to capture this outpost (overrides global default)
+  # Players must stay in the region for this duration to complete capture
+  captureTime: 60
+
+  # Cooldown in seconds after capture before outpost becomes available again
+  # During cooldown, the outpost cannot be attacked
+  cooldown: 300
+
+  # Whether to show notification when players enter this outpost region
+  # If enabled, players will see a message when entering the outpost area
+  showEnterNotification: true
+
+  # Whether to broadcast server-wide when this outpost becomes available after cooldown
+  # All players will see a message when the outpost is ready for capture again
+  showGlobalAvailableMessage: true
+
+  # Whether to broadcast server-wide when someone starts capturing this outpost
+  # All players will see a message when capture begins
+  showGlobalCaptureMessage: true
+
+  # Boss bar settings for capture progress display
+  bossbar:
+    enabled: true                    # Show boss bar during capture
+    color: "GREEN"                   # Boss bar color: GREEN, RED, BLUE, YELLOW, PINK, PURPLE, WHITE
+
+  # Location of the loot chest (world,x,y,z) - set automatically when chest is placed
+  # This is where rewards will be deposited and mobs will spawn around
+  chestLocation: "world,100,64,100"
+
+  # Radius in blocks around chest where mobs will spawn during capture waves
+  # Mobs will spawn randomly within this radius from the chest location
+  mobSpawnRadius: 5
+
+  # Loot rewards given when outpost is successfully captured
+  # Items are added directly to the outpost chest for players to collect
+  loot:
+    0:
+      material: "DIAMOND"            # Minecraft material name (must be valid)
+      amount: 2                      # Number of items to give
+      chance: 50                     # Percentage chance to drop (0-100)
+    1:
+      material: "GOLD_INGOT"         # Standard Minecraft materials work
+      amount: 5
+      chance: 75
+    2:
+      material: "ITEMSADDER:custom_sword"  # ItemsAdder items (requires ItemsAdder plugin)
+      amount: 1
+      chance: 25
+    3:
+      material: "IRON_SWORD"         # Weapons and tools
+      amount: 1
+      chance: 40
+    4:
+      material: "EMERALD"            # Valuable items
+      amount: 3
+      chance: 30
+
+  # Mob waves that spawn during capture at specific progress percentages
+  # Waves make capturing more challenging and dynamic
+  waves:
+    0:
+      percent: 25                    # Trigger when capture reaches 25% progress
+      mobs:
+        - "ZOMBIE:3"                 # Spawn 3 zombies (format: MOB_TYPE:COUNT)
+        - "SKELETON:2"               # Spawn 2 skeletons
+    1:
+      percent: 50                    # Trigger at 50% progress
+      mobs:
+        - "CREEPER:1"                # Spawn 1 creeper
+        - "SPIDER:2"                 # Spawn 2 spiders
+    2:
+      percent: 75                    # Trigger at 75% progress
+      mobs:
+        - "ZOMBIE:2"                 # More zombies
+        - "SKELETON:1"               # Additional skeleton
+        - "SENTINEL:guard_npc"       # Sentinel NPC (requires Sentinel plugin)
+
+  # Map integration settings for live web maps
+  # These settings control how the outpost appears on web-based server maps
+  map:
+    # Dynmap integration (requires Dynmap plugin)
+    showOnDynmap: true               # Display marker on Dynmap
+    dynmapIcon: "castle"             # Icon to use on Dynmap (castle, tower, fort, etc.)
+    dynmapDescription: "Capturable outpost with valuable loot and challenging mobs"
+
+    # BlueMap integration (requires BlueMap plugin)
+    showOnBlueMap: true              # Display marker on BlueMap
+    bluemapIcon: "castle"            # Icon to use on BlueMap
+    bluemapDescription: "Strategic outpost - capture for rewards!"
+
+    # General map settings
+    markerLabel: "Example Outpost"   # Label shown on map markers
+    showCaptureStatus: true          # Show if outpost is being captured or on cooldown
+    markerColor: "#FF6B35"           # Hex color for map markers (#RRGGBB format)
+
+# Additional outpost examples:
+
+# Small outpost example - quick capture, frequent availability
+# small-fort:
+#   region: "outpost_small_fort"
+#   displayName: "&6Small Fort"
+#   captureTime: 30
+#   cooldown: 120
+#   showEnterNotification: true
+#   showGlobalAvailableMessage: false
+#   showGlobalCaptureMessage: true
+#   bossbar:
+#     enabled: true
+#     color: "YELLOW"
+#   mobSpawnRadius: 3
+#   loot:
+#     0:
+#       material: "IRON_INGOT"
+#       amount: 5
+#       chance: 80
+#     1:
+#       material: "GOLD_NUGGET"
+#       amount: 10
+#       chance: 60
+#   waves:
+#     0:
+#       percent: 50
+#       mobs:
+#         - "ZOMBIE:2"
+#   map:
+#     showOnDynmap: true
+#     dynmapIcon: "tower"
+#     showOnBlueMap: true
+#     bluemapIcon: "tower"
+#     markerLabel: "Small Fort"
+#     markerColor: "#FFD700"
+
+# Large fortress example - long capture, rare but valuable
+# grand-fortress:
+#   region: "outpost_grand_fortress"
+#   displayName: "&4&lGrand Fortress"
+#   captureTime: 180
+#   cooldown: 900
+#   showEnterNotification: true
+#   showGlobalAvailableMessage: true
+#   showGlobalCaptureMessage: true
+#   bossbar:
+#     enabled: true
+#     color: "RED"
+#   mobSpawnRadius: 8
+#   loot:
+#     0:
+#       material: "DIAMOND"
+#       amount: 5
+#       chance: 90
+#     1:
+#       material: "NETHERITE_INGOT"
+#       amount: 1
+#       chance: 25
+#     2:
+#       material: "ENCHANTED_GOLDEN_APPLE"
+#       amount: 2
+#       chance: 40
+#   waves:
+#     0:
+#       percent: 20
+#       mobs:
+#         - "ZOMBIE:5"
+#         - "SKELETON:3"
+#     1:
+#       percent: 40
+#       mobs:
+#         - "CREEPER:2"
+#         - "SPIDER:4"
+#     2:
+#       percent: 60
+#       mobs:
+#         - "ZOMBIE:3"
+#         - "SKELETON:2"
+#         - "WITCH:1"
+#     3:
+#       percent: 80
+#       mobs:
+#         - "IRON_GOLEM:1"
+#         - "ZOMBIE:4"
+#   map:
+#     showOnDynmap: true
+#     dynmapIcon: "fort"
+#     showOnBlueMap: true
+#     bluemapIcon: "fort"
+#     markerLabel: "Grand Fortress"
+#     markerColor: "#8B0000"
+
+# Configuration Notes:
+# - All outpost names must be unique
+# - Region names should follow the pattern "outpost_<name>"
+# - Capture times and cooldowns are in seconds
+# - Loot chances are percentages (0-100)
+# - Invalid materials will be skipped without breaking the plugin
+# - Mob format is "MOB_TYPE:COUNT" (e.g., "ZOMBIE:5")
+# - Map integration requires the respective plugins to be installed
+# - Color codes in display names use & symbol (e.g., &6 for gold, &c for red)
+# - Chest location is set automatically when you place the outpost chest
