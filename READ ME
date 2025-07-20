@@ -81,29 +81,29 @@ Defines individual outposts with their specific settings:
 
 ## PlaceholderAPI Placeholders
 
-**Używane placeholders:**
+**Usage of placeholders:**
 - `%outposts_current%` - Current outpost name (or NONE)
 - `%outposts_cooldown_<name>%` - Cooldown remaining for specific outpost
 - `%outposts_status_<name>%` - Status: READY/CAPTURING/COOLDOWN
 - `%outposts_progress_<name>%` - Capture progress percentage
 
-**PlaceholderAPI jest wymagane** dla:
-- Integracji z innymi pluginami
-- Wyświetlania statusu outpostów w scoreboardach
-- Używania placeholderów w innych pluginach
+**PlaceholderAPI is required** for:
+- Integration with other plugins
+- Displey outposts status on tab
+- Usage placeholders in others plugin
 
 ## BlueMap Integration
 
-Aby włączyć integrację z BlueMap:
-1. Zainstaluj plugin BlueMap
-2. W konfiguracji outpostu dodaj:
+To tun on integration with BlueMap:
+1. Install plugin BlueMap
+2. In outpost config add:
 ```yaml
 map:
   showOnBlueMap: true
   markerIcon: "castle"
   markerDescription: "Capturable outpost"
 ```
-3. Zrestartuj serwer lub użyj `/oup reload`
+3. Use `/oup reload`
 
 ## Loot System
 
