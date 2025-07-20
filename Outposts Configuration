@@ -92,20 +92,6 @@ example-outpost:
         - "SKELETON:1"               # Additional skeleton
         - "SENTINEL:guard_npc"       # Sentinel NPC (requires Sentinel plugin)
 
-  # Map integration settings for live web maps
-  # These settings control how the outpost appears on web-based server maps
-  map:
-
-    # BlueMap integration (requires BlueMap plugin)
-    showOnBlueMap: true              # Display marker on BlueMap
-    bluemapIcon: "castle"            # Icon to use on BlueMap
-    bluemapDescription: "Strategic outpost - capture for rewards!"
-
-    # General map settings
-    markerLabel: "Example Outpost"   # Label shown on map markers
-    showCaptureStatus: true          # Show if outpost is being captured or on cooldown
-    markerColor: "#FF6B35"           # Hex color for map markers (#RRGGBB format)
-
 # Additional outpost examples:
 
 # Small outpost example - quick capture, frequent availability
@@ -136,8 +122,6 @@ example-outpost:
 #       mobs:
 #         - "ZOMBIE:2"
 #   map:
-#     showOnDynmap: true
-#     dynmapIcon: "tower"
 #     showOnBlueMap: true
 #     bluemapIcon: "tower"
 #     markerLabel: "Small Fort"
@@ -192,12 +176,7 @@ example-outpost:
 #         - "IRON_GOLEM:1"
 #         - "ZOMBIE:4"
 #   map:
-#     showOnDynmap: true
-#     dynmapIcon: "fort"
 #     showOnBlueMap: true
-#     bluemapIcon: "fort"
-#     markerLabel: "Grand Fortress"
-#     markerColor: "#8B0000"
 
 # Configuration Notes:
 # - All outpost names must be unique
@@ -206,6 +185,5 @@ example-outpost:
 # - Loot chances are percentages (0-100)
 # - Invalid materials will be skipped without breaking the plugin
 # - Mob format is "MOB_TYPE:COUNT" (e.g., "ZOMBIE:5")
-# - Map integration requires the respective plugins to be installed
 # - Color codes in display names use & symbol (e.g., &6 for gold, &c for red)
 # - Chest location is set automatically when you place the outpost chest
