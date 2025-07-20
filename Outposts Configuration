@@ -1,6 +1,7 @@
 # Outposts Configuration File
 # Define individual outposts here
 # Each outpost must have a unique name and corresponding WorldGuard region
+# !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
 
 # Example outpost configuration (remove this section when creating real outposts)
 # This serves as a template showing all available configuration options
@@ -48,6 +49,7 @@ example-outpost:
 
   # Loot rewards given when outpost is successfully captured
   # Items are added directly to the outpost chest for players to collect
+  # !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
   loot:
    '0':
       material: "DIAMOND"            # Minecraft material name (must be valid)
@@ -58,7 +60,7 @@ example-outpost:
       amount: 5
       chance: 75
    '2':
-      material: "ITEMSADDER:custom_sword"  # ItemsAdder items (requires ItemsAdder plugin)
+      material: "ITEMSADDER:coins:gold_coin"  # ItemsAdder items (requires ItemsAdder plugin)
       amount: 1
       chance: 25
    '3':
