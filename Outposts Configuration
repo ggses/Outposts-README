@@ -49,23 +49,23 @@ example-outpost:
   # Loot rewards given when outpost is successfully captured
   # Items are added directly to the outpost chest for players to collect
   loot:
-    0:
+   '0':
       material: "DIAMOND"            # Minecraft material name (must be valid)
       amount: 2                      # Number of items to give
       chance: 50                     # Percentage chance to drop (0-100)
-    1:
+   '1':
       material: "GOLD_INGOT"         # Standard Minecraft materials work
       amount: 5
       chance: 75
-    2:
+   '2':
       material: "ITEMSADDER:custom_sword"  # ItemsAdder items (requires ItemsAdder plugin)
       amount: 1
       chance: 25
-    3:
+   '3':
       material: "IRON_SWORD"         # Weapons and tools
       amount: 1
       chance: 40
-    4:
+   '4':
       material: "EMERALD"            # Valuable items
       amount: 3
       chance: 30
@@ -73,17 +73,17 @@ example-outpost:
   # Mob waves that spawn during capture at specific progress percentages
   # Waves make capturing more challenging and dynamic
   waves:
-    0:
+   '0':
       percent: 25                    # Trigger when capture reaches 25% progress
       mobs:
         - "ZOMBIE:3"                 # Spawn 3 zombies (format: MOB_TYPE:COUNT)
         - "SKELETON:2"               # Spawn 2 skeletons
-    1:
+   '1':
       percent: 50                    # Trigger at 50% progress
       mobs:
         - "CREEPER:1"                # Spawn 1 creeper
         - "SPIDER:2"                 # Spawn 2 spiders
-    2:
+   '2':
       percent: 75                    # Trigger at 75% progress
       mobs:
         - "ZOMBIE:2"                 # More zombies
@@ -124,16 +124,16 @@ example-outpost:
 #     color: "YELLOW"
 #   mobSpawnRadius: 3
 #   loot:
-#     0:
+#    '0':
 #       material: "IRON_INGOT"
 #       amount: 5
 #       chance: 80
-#     1:
+#    '1':
 #       material: "GOLD_NUGGET"
 #       amount: 10
 #       chance: 60
 #   waves:
-#     0:
+#    '0':
 #       percent: 50
 #       mobs:
 #         - "ZOMBIE:2"
@@ -159,36 +159,36 @@ example-outpost:
 #     color: "RED"
 #   mobSpawnRadius: 8
 #   loot:
-#     0:
+#    '0':
 #       material: "DIAMOND"
 #       amount: 5
 #       chance: 90
-#     1:
+#    '1':
 #       material: "NETHERITE_INGOT"
 #       amount: 1
 #       chance: 25
-#     2:
+#    '2':
 #       material: "ENCHANTED_GOLDEN_APPLE"
 #       amount: 2
 #       chance: 40
 #   waves:
-#     0:
+#    '0':
 #       percent: 20
 #       mobs:
 #         - "ZOMBIE:5"
 #         - "SKELETON:3"
-#     1:
+#    '1':
 #       percent: 40
 #       mobs:
 #         - "CREEPER:2"
 #         - "SPIDER:4"
-#     2:
+#    '2':
 #       percent: 60
 #       mobs:
 #         - "ZOMBIE:3"
 #         - "SKELETON:2"
 #         - "WITCH:1"
-#     3:
+#    '3':
 #       percent: 80
 #       mobs:
 #         - "IRON_GOLEM:1"
