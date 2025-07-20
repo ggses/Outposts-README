@@ -11,6 +11,7 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 - **Boss Bar Progress**: Visual capture progress with customizable colors
 - **PlaceholderAPI Integration**: Full placeholder support for other plugins
 - **Optional Integrations**: ItemsAdder, Sentinel NPCs, BlueMap/Dynmap markers
+- **Optional Integrations**: ItemsAdder, Sentinel NPCs
 
 ## Requirements
 
@@ -22,7 +23,6 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 ### Optional Dependencies
 - **ItemsAdder** - For custom loot items
 - **Sentinel** - For spawning custom NPC mobs during waves
-- **BlueMap** - For displaying outpost markers on live maps
 
 ## Installation
 
@@ -116,21 +116,8 @@ Defines individual outposts with their specific settings:
 
 **PlaceholderAPI is required** for:
 - Integration with other plugins
-- Displey outposts status on tab
+- Display outposts status on tab
 - Usage placeholders in others plugin
-
-## BlueMap Integration
-
-To tun on integration with BlueMap:
-1. Install plugin BlueMap
-2. In outpost config add:
-```yaml
-map:
-  showOnBlueMap: true
-  markerIcon: "castle"
-  markerDescription: "Capturable outpost"
-```
-3. Use `/oup reload`
 
 ## Loot System
 
