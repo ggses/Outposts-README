@@ -95,10 +95,6 @@ example-outpost:
   # Map integration settings for live web maps
   # These settings control how the outpost appears on web-based server maps
   map:
-    # Dynmap integration (requires Dynmap plugin)
-    showOnDynmap: true               # Display marker on Dynmap
-    dynmapIcon: "castle"             # Icon to use on Dynmap (castle, tower, fort, etc.)
-    dynmapDescription: "Capturable outpost with valuable loot and challenging mobs"
 
     # BlueMap integration (requires BlueMap plugin)
     showOnBlueMap: true              # Display marker on BlueMap
