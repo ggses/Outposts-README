@@ -43,6 +43,7 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 - `/outposts delete <name>` - Delete existing outpost  
 - `/outposts reload` - Reload plugin configuration
 - `/outposts help` - Show help information
+# !!!USING THE /oup addloot COMMAND MAY OVERWRITE MANUALLY ADDED LOOT IN THE outposts.yml FILE!!!
 
 ## Permissions
 
