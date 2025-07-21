@@ -128,7 +128,7 @@ loot:
     amount: 2
     chance: 50
   1:
-    material: "ITEMSADDER:custom_sword"
+    material: "ITEMSADDER:coins:gold_coin"
     amount: 1
     chance: 25
 ```
