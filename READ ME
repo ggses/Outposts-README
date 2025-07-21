@@ -10,8 +10,7 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 - **Mob Waves**: Spawn mobs at specific capture progress percentages
 - **Boss Bar Progress**: Visual capture progress with customizable colors
 - **PlaceholderAPI Integration**: Full placeholder support for other plugins
-- **Optional Integrations**: ItemsAdder, Sentinel NPCs, BlueMap/Dynmap markers
-- **Optional Integrations**: ItemsAdder, Sentinel NPCs
+- **Optional Integrations**: ItemsAdder
 
 ## Requirements
 
@@ -22,7 +21,6 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 
 ### Optional Dependencies
 - **ItemsAdder** - For custom loot items
-- **Sentinel** - For spawning custom NPC mobs during waves
 
 ## Installation
 
@@ -146,31 +144,13 @@ waves:
     mobs:
       - "ZOMBIE:3"
       - "SKELETON:2"
-      - "SENTINEL:guard_npc"
 ```
 
-## Building from Source
-
-This plugin uses Maven for dependency management:
-
-```bash
-git clone <repository-url>
-cd outposts-plugin
-mvn clean package
-```
-
-The compiled JAR will be in the `target/` directory.
 
 ## Compatibility
 
-- **Minecraft Version**: 1.21.5
+- **Minecraft Version**: 1.21
 - **Server Software**: Spigot and Paper (Paper recommended)
 - **Java Version**: 17+
 
-## Support
 
-For issues, feature requests, or questions, please visit our GitHub repository or Discord server.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
