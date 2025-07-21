@@ -123,7 +123,6 @@ Defines individual outposts with their specific settings:
 Supports both vanilla Minecraft items and ItemsAdder custom items:
 
 ```yaml
-loot:
   loot:
     '0':
       material: DIAMOND
