@@ -90,7 +90,6 @@ example-outpost:
       mobs:
         - "ZOMBIE:2"                 # More zombies
         - "SKELETON:1"               # Additional skeleton
-        - "SENTINEL:guard_npc"       # Sentinel NPC (requires Sentinel plugin)
 
 # Additional outpost examples:
 
