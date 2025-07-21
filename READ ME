@@ -21,6 +21,7 @@ A comprehensive outpost capture system for Minecraft 1.21.5 servers. Compatible 
 
 ### Optional Dependencies
 - **ItemsAdder** - For custom loot items
+- **MythicMobs** - For spawning custom mythic mobs during waves
 
 ## Installation
 
@@ -123,14 +124,16 @@ Supports both vanilla Minecraft items and ItemsAdder custom items:
 
 ```yaml
 loot:
-  0:
-    material: "DIAMOND"
-    amount: 2
-    chance: 50
-  1:
-    material: "ITEMSADDER:coins:gold_coin"
-    amount: 1
-    chance: 25
+  loot:
+    '0':
+      material: DIAMOND
+      amount: 32
+      chance: 50
+    '1':
+      material: ITEMSADDER:coins:bronze_coin
+      amount: 32
+      chance: 50
+
 ```
 
 ## Mob Waves
@@ -139,11 +142,12 @@ Spawn mobs at specific capture progress percentages:
 
 ```yaml
 waves:
-  0:
-    percent: 25
-    mobs:
-      - "ZOMBIE:3"
-      - "SKELETON:2"
+    '0':
+      percent: 25
+      mobs:
+        '0': ZOMBIE:3
+        '1': MYTHICMOBS:FireDemon:2
+
 ```
 
 
